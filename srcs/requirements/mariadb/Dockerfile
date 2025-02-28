@@ -13,6 +13,4 @@ RUN chmod +x /tools/script.sh
 
 USER mysql
 
-EXPOSE 3306
-
 CMD ["/tools/script.sh"]
