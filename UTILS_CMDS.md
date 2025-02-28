@@ -7,5 +7,5 @@ apk add coreutils
 ```
 
 ```bash
-for i in $(docker images | grep "<none>" | cut -d " " -f 26); do docker rmi $i; done
+for i in $(docker images | grep "<none>" | awk '{print $3}'); do docker rmi $i; done
 ```
