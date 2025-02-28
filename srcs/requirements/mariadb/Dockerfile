@@ -8,11 +8,11 @@ RUN apk update --no-cache \
 
 COPY conf/mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 COPY tools/init.sql /tools/init.sql
-COPY tools/entrypoint.sh /tools/entrypoint.sh
-RUN chmod +x /tools/entrypoint.sh
+COPY tools/script.sh /tools/script.sh
+RUN chmod +x /tools/script.sh
 
 USER mysql
 
 EXPOSE 3306
 
-ENTRYPOINT ["/tools/entrypoint.sh"]
+CMD ["/tools/script.sh"]
