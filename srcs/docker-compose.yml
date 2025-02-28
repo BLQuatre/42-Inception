@@ -1,19 +1,18 @@
 services:
-  # nginx:
-  #   container_name: nginx
-  #   volumes:
-  #     - wordpress:/var/www/wordpress
-  #   networks:
-  #     - inception
-  #   depends_on:
-  #     - wordpress
-  #   build:
-  #     context: requirements/nginx
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "7654:443"
-  #   restart: always
-
+  nginx:
+    container_name: nginx
+    volumes:
+      - wordpress:/var/www/wordpress
+    networks:
+      - inception
+    depends_on:
+      - wordpress
+    build:
+      context: requirements/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "7654:443"
+    restart: always
   mariadb:
     container_name: mariadb
     networks:
