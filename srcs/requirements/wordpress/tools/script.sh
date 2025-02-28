@@ -36,6 +36,19 @@ wp theme install astra \
 	--allow-root \
 	--path='/var/www/wordpress'
 
+wp config set WP_REDIS_HOST "redis" --path=/var/www/wordpress
+wp config set WP_REDIS_PORT 6379 --raw --path=/var/www/wordpress
+wp config set WP_CACHE true --raw --path=/var/www/wordpress
+
+wp plugin install redis-cache \
+	--activate \
+	--allow-root \
+	--path='/var/www/wordpress'
+
+wp redis enable \
+	--allow-root \
+	--path='/var/www/wordpress'
+
 mkdir -p /run/php
 
 /usr/sbin/php-fpm83 -F
