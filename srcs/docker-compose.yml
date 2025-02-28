@@ -21,8 +21,6 @@ services:
       context: requirements/mariadb
       dockerfile: Dockerfile
     env_file: .env
-    ports:
-      - "2345:3306"
     volumes:
       - mariadb:/var/lib/mysql
     restart: always
