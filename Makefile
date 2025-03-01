@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 22:38:54 by cauvray           #+#    #+#              #
-#    Updated: 2025/02/28 22:26:07 by cauvray          ###   ########.fr        #
+#    Updated: 2025/03/01 19:27:24 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,10 @@ stop:
 start:
 	$(DOCKER_COMPOSE_CMD) -p $(NAME) -f $(DOCKER_COMPOSE_PATH) start
 
-restart: down all
+restart:
+	$(DOCKER_COMPOSE_CMD) -p $(NAME) -f $(DOCKER_COMPOSE_PATH) restart
+
+re: down all
 
 test:
 	docker run -it --rm alpine:3.21.2 sh
