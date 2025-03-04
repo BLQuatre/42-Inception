@@ -6,16 +6,16 @@ cd /var/www/wordpress
 
 export HTTP_HOST="cauvray.42.fr"
 
-while ! mariadb -h mariadb -u ${SQL_USER} -p${SQL_PASSWORD} -e "SELECT 1" &>/dev/null; do
+while ! mariadb -h mariadb -u ${WP_SQL_USER} -p${WP_SQL_PASSWORD} -e "SELECT 1" &>/dev/null; do
 	sleep 2
 done
 
 if [ ! -f "/var/www/wordpress/wp-config.php" ]; then
 	wp config create \
 		--allow-root \
-		--dbname=${SQL_DATABASE} \
-		--dbuser=${SQL_USER} \
-		--dbpass=${SQL_PASSWORD} \
+		--dbname=${WP_SQL_DATABASE} \
+		--dbuser=${WP_SQL_USER} \
+		--dbpass=${WP_SQL_PASSWORD} \
 		--dbhost=mariadb \
 		--path='/var/www/wordpress' \
 		--locale=fr_FR
