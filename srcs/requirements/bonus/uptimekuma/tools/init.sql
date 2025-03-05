@@ -13,8 +13,10 @@ VALUES
 (3, 'Portfolio', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'portfolio', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
 (4, 'Nginx', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'nginx', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
 (5, 'Uptime Kuma', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'uptimekuma', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
-(6, 'MariaDB', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'mariadb', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
-(7, 'Adminer', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'adminer', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic');
+(6, 'FTP', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'ftp', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
+(7, 'MariaDB', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'mariadb', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
+(8, 'Adminer', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'adminer', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic');
+
 
 INSERT OR IGNORE INTO `status_page` (`id`, `slug`, `title`, `icon`, `theme`, `footer_text`, `custom_css`, `show_powered_by`)
 VALUES
@@ -33,5 +35,6 @@ VALUES
 (3, 3, 1, 3),
 (4, 4, 2, 1),
 (5, 5, 2, 2),
-(6, 6, 3, 1),
-(7, 7, 3, 2);
+(6, 6, 2, 3),
+(7, 7, 3, 1),
+(8, 8, 3, 2);
