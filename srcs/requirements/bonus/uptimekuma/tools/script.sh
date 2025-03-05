@@ -6,13 +6,13 @@ DB_PATH="/app/data/kuma.db"
 
 node server/server.js &
 
-while [ ! -f "$DB_PATH" ]; do
+while [ ! -f "${DB_PATH}" ]; do
 	sleep 2;
 done
 
 pkill -f "node server/server.js"
 
-export CRYPTED_UPKUMA_PASSWORD=$(htpasswd -bnBC 10 "" ${UPKUMA_PASSWORD} | tr -d ':\n')
+export CRYPTED_UPKUMA_PASSWORD=$(htpasswd -bnBC 10 "" "${UPKUMA_PASSWORD}" | tr -d ':\n')
 
 if [ -f "/tools/init.sql" ]; then
 echo "init sql"

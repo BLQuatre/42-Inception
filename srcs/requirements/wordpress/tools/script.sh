@@ -2,37 +2,37 @@
 
 set -e
 
-export HTTP_HOST=${DOMAIN_NAME}
+export HTTP_HOST="${DOMAIN_NAME}"
 
-while ! mariadb -h mariadb -u ${WP_SQL_USER} -p${WP_SQL_PASSWORD} -e "SELECT 1" &>/dev/null; do
+while ! mariadb -h mariadb -u "${WP_SQL_USER}" -p"${WP_SQL_PASSWORD}" -e "SELECT 1" &>/dev/null; do
 	sleep 2
 done
 
 if [ ! -f "/var/www/wordpress/wp-config.php" ]; then
 	wp config create \
 		--allow-root \
-		--dbname=${WP_SQL_DATABASE} \
-		--dbuser=${WP_SQL_USER} \
-		--dbpass=${WP_SQL_PASSWORD} \
+		--dbname="${WP_SQL_DATABASE}" \
+		--dbuser="${WP_SQL_USER}" \
+		--dbpass="${WP_SQL_PASSWORD}" \
 		--dbhost=mariadb \
 		--locale=fr_FR
 fi
 
 if ! wp core is-installed; then
 	wp core install \
-		--url=${DOMAIN_NAME}/ \
-		--title=${WP_TITLE} \
-		--admin_user=${WP_ADMIN_USER} \
-		--admin_password=${WP_ADMIN_PASSWORD} \
-		--admin_email=${WP_ADMIN_EMAIL} \
+		--url="${DOMAIN_NAME}"/ \
+		--title="${WP_TITLE}" \
+		--admin_user="${WP_ADMIN_USER}" \
+		--admin_password="${WP_ADMIN_PASSWORD}" \
+		--admin_email="${WP_ADMIN_EMAIL}" \
 		--skip-email \
 		--allow-root
 fi
 
-if ! wp user exists ${WP_USER_USER}; then
-	wp user create ${WP_USER_USER} ${WP_USER_EMAIL} \
+if ! wp user exists "${WP_USER_USER}"; then
+	wp user create "${WP_USER_USER}" "${WP_USER_EMAIL}" \
 		--role=author \
-		--user_pass=${WP_USER_PASSWORD} \
+		--user_pass="${WP_USER_PASSWORD}" \
 		--allow-root
 fi
 
