@@ -12,6 +12,3 @@ COPY tools/script.sh /tools/script.sh
 RUN chmod +x /tools/script.sh
 
 ENTRYPOINT ["/tools/script.sh"]
-
-
-# CMD ["node", "server/server.js"]
