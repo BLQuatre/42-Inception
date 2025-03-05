@@ -15,7 +15,6 @@ pkill -f "node server/server.js"
 export CRYPTED_UPKUMA_PASSWORD=$(htpasswd -bnBC 10 "" "${UPKUMA_PASSWORD}" | tr -d ':\n')
 
 if [ -f "/tools/init.sql" ]; then
-echo "init sql"
 	envsubst < /tools/init.sql | sqlite3 /app/data/kuma.db
 fi
 
