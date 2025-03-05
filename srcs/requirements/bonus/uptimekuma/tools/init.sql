@@ -6,14 +6,15 @@ INSERT OR IGNORE INTO `docker_host` (`id`, `user_id`, `docker_daemon`, `docker_t
 VALUES
 (1, 1, '/var/run/docker.sock', 'socket', 'Inception');
 
-INSERT OR IGNORE INTO `monitor` (`id`, `name`, `user_id`, `url`, `type`, `dns_resolve_type`, `dns_resolve_server`, `retry_interval`, `docker_host`, `docker_container`, `expiry_notification`, `mqtt_topic`, `mqtt_success_message`, `mqtt_username`, `mqtt_password`, `kafka_producer_brokers`, `kafka_producer_sasl_options`, `oauth_auth_method`, `timeout`)
+INSERT OR IGNORE INTO `monitor` (`id`, `name`, `user_id`, `url`, `type`, `dns_resolve_type`, `dns_resolve_server`, `retry_interval`, `docker_host`, `docker_container`, `expiry_notification`, `mqtt_topic`, `mqtt_success_message`, `mqtt_username`, `mqtt_password`, `kafka_producer_brokers`, `kafka_producer_sasl_options`, `oauth_auth_method`)
 VALUES
-(1, 'Wordpress', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'wordpress', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic', 16),
-(2, 'Redis Cache', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'redis', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic', 16),
-(3, 'Nginx', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'nginx', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic', 16),
-(4, 'Uptime Kuma', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'uptimekuma', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic', 16),
-(5, 'MariaDB', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'mariadb', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic', 16),
-(6, 'Adminer', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'adminer', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic', 16);
+(1, 'Wordpress', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'wordpress', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
+(2, 'Redis Cache', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'redis', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
+(3, 'Portfolio', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'portfolio', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
+(4, 'Nginx', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'nginx', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
+(5, 'Uptime Kuma', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'uptimekuma', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
+(6, 'MariaDB', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'mariadb', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic'),
+(7, 'Adminer', 1, 'https://', 'docker', 'A', '1.1.1.1', 20, 1, 'adminer', 0, '', '', '', '', '[]', '{"mechanism":"None"}', 'client_secret_basic');
 
 INSERT OR IGNORE INTO `status_page` (`id`, `slug`, `title`, `icon`, `theme`, `footer_text`, `custom_css`, `show_powered_by`)
 VALUES
@@ -29,7 +30,8 @@ INSERT OR IGNORE INTO `monitor_group` (`id`, `monitor_id`, `group_id`, `weight`)
 VALUES
 (1, 1, 1, 1),
 (2, 2, 1, 2),
-(3, 3, 2, 1),
-(4, 4, 2, 2),
-(5, 5, 3, 1),
-(6, 6, 3, 2);
+(3, 3, 1, 3),
+(4, 4, 2, 1),
+(5, 5, 2, 2),
+(6, 6, 3, 1),
+(7, 7, 3, 2);

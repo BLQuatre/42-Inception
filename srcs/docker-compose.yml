@@ -81,6 +81,16 @@ services:
     ports:
       - "3001:3001"
     restart: always
+  portfolio:
+    container_name: portfolio
+    networks:
+      - inception
+    build:
+      context: requirements/bonus/portfolio
+      dockerfile: Dockerfile
+    ports:
+      - "7000:80"
+    restart: always
 
 volumes:
   wordpress:
