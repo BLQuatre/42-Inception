@@ -6,7 +6,7 @@
 #    By: cauvray <cauvray@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 22:38:54 by cauvray           #+#    #+#              #
-#    Updated: 2025/03/01 19:27:24 by cauvray          ###   ########.fr        #
+#    Updated: 2025/03/05 04:48:13 by cauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,5 +40,11 @@ re: down all
 
 test:
 	docker run -it --rm alpine:3.21.2 sh
+
+del_images_none:
+	for i in $$(docker images | grep "<none>" | awk '{print $$3}'); do docker rmi $$i; done
+
+del_images:
+	for i in $$(docker images | grep "inception-" | awk '{print $$3}'); do docker rmi $$i; done
 
 .PHONY: test
