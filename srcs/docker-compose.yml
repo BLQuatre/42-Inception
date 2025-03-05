@@ -61,6 +61,26 @@ services:
     ports:
       - "5000:80"
     restart: always
+  uptimekuma:
+    container_name: uptimekuma
+    networks:
+      - inception
+    depends_on:
+      - nginx
+      - mariadb
+      - wordpress
+      - redis
+      - adminer
+    build:
+      context: requirements/bonus/uptimekuma
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - uptimekuma:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "3001:3001"
+    restart: always
 
 volumes:
   wordpress:
@@ -68,13 +88,19 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/bl4/data/wordpress
+      device: /home/cauvray/data/wordpress
   mariadb:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/bl4/data/mariadb
+      device: /home/cauvray/data/mariadb
+  uptimekuma:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/cauvray/data/uptimekuma
 
 networks:
   inception:
