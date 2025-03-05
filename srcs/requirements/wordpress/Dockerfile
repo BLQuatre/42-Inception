@@ -19,4 +19,6 @@ COPY conf/www.conf /etc/php83/php-fpm.d/www.conf
 COPY tools/script.sh /tools/script.sh
 RUN chmod +x /tools/script.sh
 
+WORKDIR /var/www/wordpress
+
 CMD [ "/tools/script.sh" ]
