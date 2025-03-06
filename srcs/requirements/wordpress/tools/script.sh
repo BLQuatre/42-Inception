@@ -36,13 +36,13 @@ if ! wp user exists "${WP_USER_USER}"; then
 		--allow-root
 fi
 
-if ! wp theme is-installed astra; then
-	wp theme install astra \
+if ! wp theme is-installed tove; then
+	wp theme install tove \
 		--allow-root
 fi
 
-if ! wp theme is-active astra; then
-	wp theme activate astra \
+if ! wp theme is-active tove; then
+	wp theme activate tove \
 		--allow-root
 fi
 
