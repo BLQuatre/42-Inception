@@ -100,6 +100,10 @@ services:
       context: requirements/bonus/ftp
       dockerfile: Dockerfile
     env_file: .env
+    ports:
+      - "20:20"
+      - "21:21"
+      - "40000-40005:40000-40005"
     volumes:
       - wordpress:/home/ftp
     restart: always
