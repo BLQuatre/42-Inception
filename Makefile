@@ -19,7 +19,7 @@ all: up
 
 up:
 	@if [ -f "./srcs/.env" ]; then \
-		$(DOCKER_COMPOSE_CMD) -p $(NAME) -f $(DOCKER_COMPOSE_PATH) up --build -d; \
+		COMPOSE_BAKE=true $(DOCKER_COMPOSE_CMD) -p $(NAME) -f $(DOCKER_COMPOSE_PATH) up --build -d; \
 	else \
 		echo "No .env file found in srcs folder, please create one before running make"; \
 	fi
