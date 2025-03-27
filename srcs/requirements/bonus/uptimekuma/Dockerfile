@@ -11,4 +11,4 @@ COPY tools/init.sql /tools/init.sql
 COPY tools/script.sh /tools/script.sh
 RUN chmod +x /tools/script.sh
 
-ENTRYPOINT ["/tools/script.sh"]
+CMD ["/tools/script.sh"]
