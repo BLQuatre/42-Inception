@@ -47,4 +47,4 @@ del_images_none:
 del_images:
 	for i in $$(docker images | grep "inception-" | awk '{print $$3}'); do docker rmi $$i; done
 
-.PHONY: test
+.PHONY: all up down stop start restart re test del_images_none del_images
